@@ -8,11 +8,6 @@ public class Player : NetworkBehaviour {
 
     [SerializeField] float moveSpeed = 5f;
     private Vector3 inputValue;
-    //private Camera myCamera;
-
-	void Start () {
-        //myCamera = GetComponentInChildren<Camera>();
-	}
 	
 	void Update () {
         if (!isLocalPlayer)
@@ -28,5 +23,6 @@ public class Player : NetworkBehaviour {
     public override void OnStartLocalPlayer()
     {
         GetComponentInChildren<Camera>().enabled = true;
+        GetComponentInChildren<AudioListener>().enabled = true;
     }
 }
