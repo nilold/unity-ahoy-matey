@@ -18,10 +18,16 @@ public class MyNetworkManager : NetworkManager {
     public override void OnStartClient(NetworkClient client)
     {
         Debug.Log(Time.timeSinceLevelLoad + " Client start requested");
+        InvokeRepeating("PrintDots", 0f, 3f);
     }
 
     public override void OnClientConnect(NetworkConnection conn)
     {
         Debug.Log(Time.timeSinceLevelLoad + " Client connected to " + conn.address);
+        CancelInvoke();
+    }
+
+    void PrintDots(){
+        Debug.Log("Trying to connect...");
     }
 }
